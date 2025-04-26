@@ -93,7 +93,7 @@ DATABASES = {
     }
 }
 DATABASES['default'] = dj_database_url.parse(
-    'postgresql://django_bookmyshow_user:uF7eu2GnnDbqvUgYswCYpIS5TKTtsAUS@dpg-cshi84o8fa8c739dsme0-a.oregon-postgres.render.com/django_bookmyshow',
+    'postgresql://bookmyseat_wdly_user:NHXisp73UKW54tP2MihkwY3EP43Tb7vF@dpg-d064323uibrs73e767k0-a.oregon-postgres.render.com/bookmyseat_wdly',
     conn_max_age=600,
     ssl_require=True
 )
