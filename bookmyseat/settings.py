@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -59,7 +62,6 @@ MIDDLEWARE = [
 AUTH_USER_MODEL='auth.User'
 EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
 
-MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
@@ -154,9 +156,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+MEDIA_URL = 'https://res.cloudinary.com/dfvbwipe3/image/upload/'
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dfvbwipe3',  # Replace with your Cloudinary cloud name
-    'API_KEY': '791269466784737',        # Replace with your API key
-    'API_SECRET': '07V5HY2juOqiDDbB8v3Q2YMD9CA',  # Replace with your API secret
-}
+cloudinary.config(
+    cloud_name='dfvbwipe3',
+    api_key='791269466784737',
+    api_secret='07V5HY2juOqiDDbB8v3Q2YMD9CA',
+)
