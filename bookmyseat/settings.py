@@ -62,9 +62,6 @@ MIDDLEWARE = [
 AUTH_USER_MODEL='auth.User'
 EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
 ROOT_URLCONF = 'bookmyseat.urls'
 LOGIN_URL='/login/'
 TEMPLATES = [
@@ -103,7 +100,7 @@ DATABASES['default'] = dj_database_url.parse(
     conn_max_age=600,
     ssl_require=True
 )
-# 
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
