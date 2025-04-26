@@ -155,4 +155,4 @@ from django.core.files.storage import FileSystemStorage
 
 MEDIA_ROOT = '/tmp/media/'  # Temporary writable directory
 
-DEFAULT_FILE_STORAGE = FileSystemStorage(location=MEDIA_ROOT)
+DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
