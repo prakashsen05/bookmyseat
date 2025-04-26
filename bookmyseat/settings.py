@@ -40,7 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users',
     'movies',
+    'cloudinary_storage',
+    'cloudinary',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -150,3 +153,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Additional locations of static files
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dfvbwipe3',  # Replace with your Cloudinary cloud name
+    'API_KEY': '791269466784737',        # Replace with your API key
+    'API_SECRET': '07V5HY2juOqiDDbB8v3Q2YMD9CA',  # Replace with your API secret
+}
