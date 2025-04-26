@@ -13,9 +13,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -43,10 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users',
     'movies',
-    'cloudinary_storage',
-    'cloudinary',
 ]
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -61,6 +55,10 @@ MIDDLEWARE = [
 
 AUTH_USER_MODEL='auth.User'
 EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 ROOT_URLCONF = 'bookmyseat.urls'
 LOGIN_URL='/login/'
@@ -100,7 +98,7 @@ DATABASES['default'] = dj_database_url.parse(
     conn_max_age=600,
     ssl_require=True
 )
-
+# 
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -152,11 +150,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Additional locations of static files
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-MEDIA_URL = 'https://res.cloudinary.com/dfvbwipe3/image/upload/'
-
-cloudinary.config(
-    cloud_name='dfvbwipe3',
-    api_key='791269466784737',
-    api_secret='07V5HY2juOqiDDbB8v3Q2YMD9CA',
-)
