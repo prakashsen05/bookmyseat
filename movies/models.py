@@ -6,7 +6,6 @@ from cloudinary.models import CloudinaryField
 
 class Movie(models.Model):
     name= models.CharField(max_length=255)
-    image= CloudinaryField('image') 
     rating = models.DecimalField(max_digits=3,decimal_places=1)
     cast= models.TextField()
     description= models.TextField(blank=True,null=True) # optional
